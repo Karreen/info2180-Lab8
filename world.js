@@ -11,21 +11,7 @@ window.onload = function() {
     
     function on_load() {
     //<button id="lookup">Lookup</button>
-    var button = document.getElementById("lookup").addEventListener( "click", 
-     document.observe("dom:loaded", function() {
-                                    $("lookup").observe("click"), function() {
-                                    new Ajax.Request("world.php", 
-                                                     {
-                                    method: "GET", 
-                                        onSucess: function(response) {
-                                        alert(response.responseText);
-                                        },
-                                        onFailure: function(response) {
-                                        alert('ehh...Errors, what you gonna do :P');
-                                        }
-                                    }
-                                    }});
-    ););
+    var button = document.getElementById("lookup").addEventListener( "click", al_ert());
     
 function load_XMLDoc() {
     var xmlhttp;
@@ -99,7 +85,22 @@ function load_XMLDoc() {
 }
 
 function al_ert() {
-    alert("alert");
+     document.observe("dom:loaded", function() {
+         $("lookup").observe("click"), function() {
+             new Ajax.Request("world.php", 
+             {
+                  method: "GET", 
+                                        onSucess: function(response) {
+                                        alert(response.responseText);
+                                        },
+                                        onFailure: function(response) {
+                                        alert('ehh...Errors, what you gonna do :P');
+                                        }
+                                    }
+                                    }});
+    );
+    
+    //alert("alert");
     }
     
 /* function look_up(cname) {
