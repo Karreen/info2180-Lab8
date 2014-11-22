@@ -2,9 +2,9 @@ window.onload = function() {
     on_load(); 
 };
 
-function on_load() {
+/*function on_load() {
     //<button id="lookup">Lookup</button>
-    var button = document.getElementById("lookup")
+    var button = document.getElementById("lookup") */
     
     // listener
    // button.addEventListener( "click", al_ert);
