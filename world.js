@@ -27,7 +27,36 @@ function on_load() {
                                     }});
     ););
     
+function load_XMLDoc() {
+    var xmlhttp;
+    var txt, x, i;
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else { 
+        // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            
+            xmlDoc = xmlhttp.responseXML;
+            txt="";
+            x=xmlDoc.getElementsByTagName("Jamaica");
     
+            for (i=0;i<x.length;i++) {
+                txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+                }
+                
+            document.getElementById("lookup").innerHTML=txt;
+        }
+         }
+  
+    xmlhttp.open("GET","country.xml",true);
+    xmlhttp.send();
+}  
     
 /*    if( button.addEventListener() ) {
         
